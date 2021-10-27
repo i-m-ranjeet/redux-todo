@@ -1,5 +1,6 @@
 :root{
   --primary-color: rgb(0, 100, 79);
+  /* --primary-color: rgb(255, 255, 255); */
 }
 *{padding: 0; margin: 0; box-sizing: border-box;}
 body{
@@ -7,7 +8,7 @@ body{
   height: 100vh;
   background: #444;
   
-  background: linear-gradient(45deg,#444 50%,rgb(0, 0, 0));
+  /* background: linear-gradient(45deg,#444 50%,rgb(0, 0, 0)); */
   background-size: 2px 2px;
 }
 .header{
@@ -24,6 +25,11 @@ body{
   justify-content: space-evenly;
   border-radius: 0 0 50px 50px;
 }
+.todoapp.light .header{
+  border-radius: 0;
+  width: 100%;
+  background: #ffffff;
+}
 .header .heading{
   font-size: 35px;
   transform: translatey(-5px);
@@ -36,15 +42,22 @@ body{
   -webkit-background-clip: text;
           background-clip: text;
 }
+.todoapp.light .header .heading{
+  
+  background-color: #444;
+  text-align: center;
+  color: transparent;
+  text-shadow: 0px 3px 4px rgba(32, 33, 33, 0.666);
+  -webkit-background-clip: text;
+          background-clip: text;
+}
+
  .btn{
    min-width: 70px;
    text-align: center;
-  /* background: linear-gradient(to bottom , rgba(46, 46, 46, 0.481) 10% ,rgb(0,102,255) 70%); */
-  /* border-bottom:1px solid #fff; */
   padding: 8px 20px;
   margin: 10px 0;
   font-size: 14px;
-  /* text-shadow: 0 0 6px rgba(0, 0, 0, 0.816); */
   box-shadow: 0 4px 10px rgba(255, 255, 255, 0.227),0 -4px 10px rgba(0, 0, 0, 0.398), inset 0 -4px 4px 2px rgba(255, 255, 255, 0.193), 0px 1px 0 rgba(255, 255, 255, 0.323);
   color: rgba(255, 255, 255, 0.748);
   cursor: pointer;
@@ -52,14 +65,11 @@ body{
   text-transform: uppercase;
   border-radius: 20px;  
   transition: 1s;
-  
    font-weight: 600; 
-  /* background-color: #ffffff;
-  color: transparent;
-  text-shadow: 0px 3px 8px rgba(32, 33, 33, 0.666);
-  -webkit-background-clip: text;
-          background-clip: text; */
-  
+}
+.todoapp.light .btn{
+  border: 1px solid rgba(51, 51, 51, 0.426);
+  color: #444;
 }
 .btn.userdata{
   box-shadow:0 -4px 10px rgba(255, 255, 255, 0.391),inset 0 4px 10px rgba(0, 0, 0, 0.59);
@@ -78,6 +88,19 @@ body{
 .btn.active{
  transform: scale(0.98);
  box-shadow:0 -4px 10px rgba(255, 255, 255, 0.391),inset 0 4px 10px rgba(0, 0, 0, 0.59);
+}
+.theme{
+  margin: 0 20px;
+  border-radius: 5px;
+  padding: 4px 10px;
+  font-size: 12px;
+  color: #ffffff;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+.todoapp.light .header .theme{
+  border: 1px solid #333;
+  color: #333;
 }
 .addtodo-holder{
   width: 100%;
@@ -99,6 +122,9 @@ body{
   justify-content: space-evenly;
   border-radius: 50px;
 }
+.todoapp.light .container{
+  background: #fff;
+}
  input{
   padding: 10px;
   width: 260px;
@@ -115,6 +141,9 @@ body{
   background: var(--primary-color);
   box-shadow: 0 -4px 10px rgba(255, 255, 255, 0.357), inset 0 3px 10px rgba(0, 0, 0, 0.644);
 }
+.todoapp.light input{
+  background: #444;
+}
 .container .btn{
   font-size: 22px;
   font-weight: 100;
@@ -127,6 +156,10 @@ body{
   font-size: 26px;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.575);
 }
+
+.todoapp.light .container .search .ico{
+  color: #444;
+}
  input::placeholder{
   color: #aaa;
 }
@@ -138,6 +171,9 @@ body{
   /* background: var(--primary-color); */
   box-shadow:inset 0 -10px 10px 4px rgba(255, 255, 255, 0.57),inset 0 10px 10px 4px rgba(12, 12, 12, 0.344) , 0 -10px 20px rgba(0, 0, 0, 0.7), 0 10px 20px rgba(255, 255, 255, 0.207);
   display: flex;
+}
+.todoapp.light .todo-filters{
+background: #ffffff;
 }
 .todo-filters span{
   /* padding: 5px; */
@@ -168,10 +204,15 @@ body{
   box-shadow:inset 0 -10px 10px 4px rgba(255, 255, 255, 0.57),inset 0 10px 10px 4px rgba(12, 12, 12, 0.344) , 0 -10px 20px rgba(0, 0, 0, 0.7), 0 10px 20px rgba(255, 255, 255, 0.207);
   animation: growup .3s ease-in-out forwards;
 }
+.todoapp.light .todolist .todos{
+  background: #ffffff;
+}
 
 .todolist .todos.active{
   background: linear-gradient(30deg,var(--primary-color) 50%,rgb(118, 116, 116) 50%);
-
+}
+.todoapp.light .todolist .todos.active{
+  background: linear-gradient(30deg,#333 50%,rgb(118, 116, 116) 50%);
 }
 @keyframes growup{
   0%{
@@ -213,6 +254,15 @@ body{
           background-clip: text;
   
 }
+.todoapp.light .todolist .todos .index{
+  background-color: #000;
+  text-align: center;
+  color: transparent;
+  font-size: 30px;
+  text-shadow: 1px 0px 2px rgba(194, 194, 194, 0.871);
+  -webkit-background-clip: text;
+          background-clip: text;
+}
 .todolist .todos.active .index{
   text-shadow: 0px 3px 6px rgba(32, 33, 33, 0.809);
 }
@@ -238,6 +288,9 @@ body{
   box-shadow: 0 -4px 10px rgba(255, 255, 255, 0.357), inset 0 3px 10px rgba(0, 0, 0, 0.644);
   text-shadow: 0px 3px 4px rgba(32, 33, 33, 0.666);
 }
+.todoapp.light .todolist .todos .task{
+background: #333;
+}
 .todolist .todos .action-holder{
   width: 100%;
   display: flex;
@@ -261,6 +314,9 @@ body{
   /* box-shadow:0 0 0 1px rgba(19, 19, 19, 0.378),0 0 0 2px rgba(100, 100, 100, 0.472), 0 0 2px #000; */
   border-bottom: none;
 }
+.todoapp.light .todolist .mark-btn, .todoapp.light .todolist .close-btn{
+  background: linear-gradient(rgb(36, 36, 36) 40%,rgba(70, 70, 70, 0.837));
+}
 .todolist .mark-btn:active, .todolist .close-btn:active{
   box-shadow:inset 0 0 4px rgba(7, 7, 7, 0.699);
 
@@ -280,6 +336,9 @@ body{
   display: grid;
   place-items: center;
 }
+.login-container.light{
+  background: #444;
+}
 .login-container .login{
   min-width: 500px;
   max-width: 700px;
@@ -292,6 +351,10 @@ body{
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+}
+.login-container.light .login{
+background-color: #ffffff;
+box-shadow:0 10px 20px rgba(0, 0, 0, 0.645);
 }
 .login-container .login div{
   width: 100%;
@@ -312,6 +375,12 @@ body{
   text-align: left;
   font-weight: 600;
 }
+.login-container.light .login div input{
+  background: #444;
+}
+.login-container.light .login  *{
+  border-radius: 10px;
+}
 .login-container .login div label{
   
   background-color: #ffffff;
@@ -322,6 +391,17 @@ body{
   text-shadow: 0px 3px 4px rgba(32, 33, 33, 0.666);
   -webkit-background-clip: text;
           background-clip: text;
+}
+.login-container.light .login div label{
+  background-color: #3d3d3d;
+  color: transparent;
+  text-shadow: 0px 3px 4px rgba(32, 33, 33, 0.666);
+  -webkit-background-clip: text;
+          background-clip: text;
+}
+.login-container.light .login .btn{
+  width: 150px;
+  background: #444;
 }
 .empty-container{
   padding-top: 20px;

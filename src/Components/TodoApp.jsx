@@ -8,7 +8,7 @@ import TodoList from './TodoNeeds/TodoList'
 function TodoApp() {
     const todo = useSelector(state=>state.TodoApp)
     return (
-       todo.isLogin? <div className="todoapp">
+       todo.isLogin? <div className={todo.isLight?"todoapp light":"todoapp"}>
                     <Header />
                     <AddTodo />
                     <TodoList />

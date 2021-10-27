@@ -6,6 +6,7 @@ const initialState = {
     isthis:"all",
     heading:"Todo List In React-Redux",
     isLogin:false,
+    isLight:false,
     search:"",
     fname:"",
     lname:"",
@@ -31,6 +32,8 @@ const initialState = {
       },
       Logout:(state)=>{
         state.isLogin=false
+      },changeTheme:(state)=>{
+        state.isLight = !state.isLight
       },
       SetComplete:(state,action)=>{
         state.todos.map((ele)=>{
@@ -53,5 +56,5 @@ const initialState = {
     }
   })
 
-export const {AddNewTodo, setIsThis, SetLogin, Logout, SetComplete, deleteItem, handleSearch}=TodoAppActions.actions
+export const {AddNewTodo, setIsThis, SetLogin, Logout, changeTheme, SetComplete, deleteItem, handleSearch}=TodoAppActions.actions
 export default TodoAppActions.reducer

@@ -1,10 +1,11 @@
 import React from 'react'
 import { useState } from 'react'
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import { SetLogin } from '../Reducers/Reducers';
 // import {useSelector} from "react-redux";
 
 function Login() {
+    const todo = useSelector(state=>state.TodoApp)
     const dispatch = useDispatch();
     const [style,setStyle]=useState({});
     const [state,setState]=useState({
@@ -32,7 +33,7 @@ function Login() {
 
     }
     return (
-        <div className="login-container">
+        <div className={todo.isLight?"login-container light":"login-container"}>
             <form className="login">
                 <div>
                     <label htmlFor="fname">First Name</label>
